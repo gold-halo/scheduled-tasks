@@ -28,7 +28,7 @@ for row in data.to_dict(orient='records'):
             contents = contents.replace("[NAME]", row["name"])
 
         #send the letter generated in step 3 to that person's email address.
-        with smtplib.SMTP('smtp.gmail.com') as connection:
+        with smtplib.SMTP('smtp.gmail.com', 587) as connection:
             connection.starttls()
             connection.login(user=MY_EMAIL, password=MY_PASSWORD)
             connection.sendmail(
